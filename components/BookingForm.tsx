@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { packages } from '@/data/packages';
 import { vehicles, calculateTotalPrice, formatPrice } from '@/data/vehicles';
 
@@ -13,16 +13,15 @@ export default function BookingForm({ selectedPackageSlug }: BookingFormProps) {
   const [date, setDate] = useState('');
   const [selectedPackage, setSelectedPackage] = useState(selectedPackageSlug || '');
   const [selectedVehicle, setSelectedVehicle] = useState('avanza');
-  const [totalPrice, setTotalPrice] = useState(0);
 
-  useEffect(() => {
+  const totalPrice = useMemo(() => {
     if (selectedPackage) {
       const pkg = packages.find(p => p.slug === selectedPackage);
       if (pkg) {
-        const price = calculateTotalPrice(pkg.basePrice, selectedVehicle);
-        setTotalPrice(price);
+        return calculateTotalPrice(pkg.basePrice, selectedVehicle);
       }
     }
+    return 0;
   }, [selectedPackage, selectedVehicle]);
 
   const handleSubmit = (e: React.FormEvent) => {
