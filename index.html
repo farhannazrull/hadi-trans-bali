@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadi Trans Bali - Private Tour &amp; Transportation</title>
+    <meta name="description" content="Experience Bali with Hadi Trans Bali - Premium private tours and transportation services with local drivers.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f5132',
+                        accent: '#ffda77',
+                        'primary-dark': '#0a3d26',
+                        'primary-light': '#1a7a4c',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-poppins bg-gray-50 text-gray-800">
+    
+    <!-- ========== HEADER / NAVBAR ========== -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="text-2xl font-bold text-white hover:text-accent transition-colors">
+                <span class="text-accent">Hadi</span> Trans Bali
+            </a>
+            
+            <!-- Desktop Menu -->
+            <ul class="hidden lg:flex items-center space-x-6">
+                <li><a href="#home" class="nav-link text-white hover:text-accent transition-colors" data-en="Home" data-id="Beranda">Home</a></li>
+                <li><a href="#packages" class="nav-link text-white hover:text-accent transition-colors" data-en="Packages" data-id="Paket">Packages</a></li>
+                <li><a href="#fleet" class="nav-link text-white hover:text-accent transition-colors" data-en="Fleet" data-id="Armada">Fleet</a></li>
+                <li><a href="#gallery" class="nav-link text-white hover:text-accent transition-colors" data-en="Gallery" data-id="Galeri">Gallery</a></li>
+                <li><a href="#documentation" class="nav-link text-white hover:text-accent transition-colors" data-en="Documentation" data-id="Dokumentasi">Documentation</a></li>
+                <li><a href="#bookings" class="nav-link text-white hover:text-accent transition-colors" data-en="Bookings" data-id="Pemesanan">Bookings</a></li>
+                <li><a href="#about" class="nav-link text-white hover:text-accent transition-colors" data-en="About" data-id="Tentang">About</a></li>
+                <li><a href="#contact" class="nav-link text-white hover:text-accent transition-colors" data-en="Contact" data-id="Kontak">Contact</a></li>
+            </ul>
+            
+            <!-- Right Side Buttons -->
+            <div class="flex items-center space-x-3">
+                <!-- Language Toggle -->
+                <button id="langToggle" class="px-3 py-1.5 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-all text-sm font-medium">
+                    EN/ID
+                </button>
+                
+                <!-- Book Now Button -->
+                <a href="#packages" class="hidden sm:inline-block px-5 py-2 bg-accent text-primary font-semibold rounded-xl hover:bg-yellow-300 transition-all shadow-lg" data-en="Book Now" data-id="Pesan Sekarang">
+                    Book Now
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-primary/95 backdrop-blur-md">
+            <ul class="container mx-auto px-4 py-4 space-y-3">
+                <li><a href="#home" class="block text-white hover:text-accent py-2" data-en="Home" data-id="Beranda">Home</a></li>
+                <li><a href="#packages" class="block text-white hover:text-accent py-2" data-en="Packages" data-id="Paket">Packages</a></li>
+                <li><a href="#fleet" class="block text-white hover:text-accent py-2" data-en="Fleet" data-id="Armada">Fleet</a></li>
+                <li><a href="#gallery" class="block text-white hover:text-accent py-2" data-en="Gallery" data-id="Galeri">Gallery</a></li>
+                <li><a href="#documentation" class="block text-white hover:text-accent py-2" data-en="Documentation" data-id="Dokumentasi">Documentation</a></li>
+                <li><a href="#bookings" class="block text-white hover:text-accent py-2" data-en="Bookings" data-id="Pemesanan">Bookings</a></li>
+                <li><a href="#about" class="block text-white hover:text-accent py-2" data-en="About" data-id="Tentang">About</a></li>
+                <li><a href="#contact" class="block text-white hover:text-accent py-2" data-en="Contact" data-id="Kontak">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1920&q=80');">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary/80"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fadeInUp" data-en="Private Bali Tour with Local Driver" data-id="Tur Privat Bali dengan Sopir Lokal">
+                Private Bali Tour with Local Driver
+            </h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90 animate-fadeInUp" style="animation-delay: 0.2s;" data-en="Discover the beauty of Bali with our professional drivers. Comfortable vehicles, flexible itineraries, and unforgettable experiences." data-id="Temukan keindahan Bali bersama sopir profesional kami. Kendaraan nyaman, jadwal fleksibel, dan pengalaman tak terlupakan.">
+                Discover the beauty of Bali with our professional drivers. Comfortable vehicles, flexible itineraries, and unforgettable experiences.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp" style="animation-delay: 0.4s;">
+                <a href="#contact" class="px-8 py-4 bg-accent text-primary font-bold rounded-xl hover:bg-yellow-300 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1" data-en="Book via WhatsApp" data-id="Pesan via WhatsApp">
+                    <i class="fab fa-whatsapp mr-2"></i>Book via WhatsApp
+                </a>
+                <a href="#packages" class="px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-xl hover:bg-white/30 transition-all border-2 border-white/50" data-en="See Packages" data-id="Lihat Paket">
+                    <i class="fas fa-box-open mr-2"></i>See Packages
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#packages" class="text-white text-3xl opacity-70 hover:opacity-100 transition-opacity">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== PACKAGES SECTION ========== -->
+    <section id="packages" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-en="Tour Packages" data-id="Paket Tur">Tour Packages</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-en="Choose from our carefully curated tour packages to explore the best of Bali" data-id="Pilih dari paket tur kami yang dikurasi dengan hati-hati untuk menjelajahi yang terbaik dari Bali">
+                    Choose from our carefully curated tour packages to explore the best of Bali
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="packagesGrid">
+                <!-- Package cards will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FLEET SECTION ========== -->
+    <section id="fleet" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-en="Our Fleet" data-id="Armada Kami">Our Fleet</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-en="Select the perfect vehicle for your Bali adventure" data-id="Pilih kendaraan yang sempurna untuk petualangan Bali Anda">
+                    Select the perfect vehicle for your Bali adventure
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="fleetGrid">
+                <!-- Fleet cards will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== GALLERY SECTION ========== -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-en="Gallery" data-id="Galeri">Gallery</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-en="Explore beautiful moments from our tours and adventures" data-id="Jelajahi momen indah dari tur dan petualangan kami">
+                    Explore beautiful moments from our tours and adventures
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="galleryGrid">
+                <!-- Gallery items will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DOCUMENTATION / TESTIMONIALS SECTION ========== -->
+    <section id="documentation" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-en="Customer Testimonials" data-id="Testimoni Pelanggan">Customer Testimonials</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-en="What our happy customers say about their experience" data-id="Apa yang dikatakan pelanggan kami tentang pengalaman mereka">
+                    What our happy customers say about their experience
+                </p>
+            </div>
+            
+            <!-- Testimonial Carousel -->
+            <div class="relative max-w-4xl mx-auto">
+                <div id="testimonialCarousel" class="overflow-hidden">
+                    <div class="flex transition-transform duration-500" id="testimonialSlider">
+                        <!-- Testimonials will be generated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Carousel Controls -->
+                <button id="prevTestimonial" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 lg:-translate-x-12 bg-white p-3 rounded-full shadow-lg hover:bg-primary hover:text-white transition-colors">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="nextTestimonial" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 lg:translate-x-12 bg-white p-3 rounded-full shadow-lg hover:bg-primary hover:text-white transition-colors">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- Carousel Dots -->
+                <div class="flex justify-center mt-6 space-x-2" id="testimonialDots">
+                    <!-- Dots will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BOOKINGS SECTION ========== -->
+    <section id="bookings" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-en="Your Bookings" data-id="Pemesanan Anda">Your Bookings</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-en="Review and manage your tour bookings" data-id="Tinjau dan kelola pemesanan tur Anda">
+                    Review and manage your tour bookings
+                </p>
+            </div>
+            
+            <div id="bookingsContainer" class="max-w-4xl mx-auto">
+                <!-- Bookings will be loaded from localStorage by JavaScript -->
+                <div id="noBookings" class="text-center py-12 bg-gray-50 rounded-xl">
+                    <i class="fas fa-calendar-times text-6xl text-gray-300 mb-4"></i>
+                    <p class="text-gray-500" data-en="No bookings yet. Start exploring our packages!" data-id="Belum ada pemesanan. Mulai jelajahi paket kami!">
+                        No bookings yet. Start exploring our packages!
+                    </p>
+                    <a href="#packages" class="inline-block mt-4 px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary-dark transition-colors" data-en="Browse Packages" data-id="Lihat Paket">
+                        Browse Packages
+                    </a>
+                </div>
+                
+                <div id="bookingsList" class="space-y-4 hidden">
+                    <!-- Booking cards will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" data-en="About Hadi Trans Bali" data-id="Tentang Hadi Trans Bali">About Hadi Trans Bali</h2>
+                    <p class="text-white/80 mb-6 leading-relaxed" data-en="Hadi Trans Bali is your trusted partner for exploring the beautiful island of Bali. With years of experience in the tourism industry, we provide professional transportation services with local drivers who know every corner of the island." data-id="Hadi Trans Bali adalah mitra terpercaya Anda untuk menjelajahi pulau Bali yang indah. Dengan pengalaman bertahun-tahun di industri pariwisata, kami menyediakan layanan transportasi profesional dengan sopir lokal yang mengenal setiap sudut pulau.">
+                        Hadi Trans Bali is your trusted partner for exploring the beautiful island of Bali. With years of experience in the tourism industry, we provide professional transportation services with local drivers who know every corner of the island.
+                    </p>
+                    <p class="text-white/80 mb-8 leading-relaxed" data-en="Our mission is to make your Bali experience unforgettable with comfortable vehicles, flexible itineraries, and personalized service that caters to your needs." data-id="Misi kami adalah membuat pengalaman Bali Anda tak terlupakan dengan kendaraan nyaman, jadwal fleksibel, dan layanan personal yang memenuhi kebutuhan Anda.">
+                        Our mission is to make your Bali experience unforgettable with comfortable vehicles, flexible itineraries, and personalized service that caters to your needs.
+                    </p>
+                    
+                    <!-- Features -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-accent text-xl"></i>
+                            <span data-en="Licensed Drivers" data-id="Sopir Berlisensi">Licensed Drivers</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-accent text-xl"></i>
+                            <span data-en="Comfortable Vehicles" data-id="Kendaraan Nyaman">Comfortable Vehicles</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-accent text-xl"></i>
+                            <span data-en="Flexible Itinerary" data-id="Jadwal Fleksibel">Flexible Itinerary</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-accent text-xl"></i>
+                            <span data-en="Best Prices" data-id="Harga Terbaik">Best Prices</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Stats -->
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                        <div class="text-4xl md:text-5xl font-bold text-accent mb-2">
+                            <span class="counter" data-target="10">0</span>+
+                        </div>
+                        <p class="text-white/80" data-en="Years Experience" data-id="Tahun Pengalaman">Years Experience</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                        <div class="text-4xl md:text-5xl font-bold text-accent mb-2">
+                            <span class="counter" data-target="1000">0</span>+
+                        </div>
+                        <p class="text-white/80" data-en="Happy Customers" data-id="Pelanggan Puas">Happy Customers</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                        <div class="text-4xl md:text-5xl font-bold text-accent mb-2">
+                            <span class="counter" data-target="50">0</span>+
+                        </div>
+                        <p class="text-white/80" data-en="Tour Destinations" data-id="Destinasi Tur">Tour Destinations</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                        <div class="text-4xl md:text-5xl font-bold text-accent mb-2">
+                            <span class="counter" data-target="5">0</span><span class="text-2xl">.0</span>
+                        </div>
+                        <p class="text-white/80" data-en="Average Rating" data-id="Rating Rata-rata">Average Rating</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-en="Contact Us" data-id="Hubungi Kami">Contact Us</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-en="Have questions or ready to book? Get in touch with us!" data-id="Punya pertanyaan atau siap memesan? Hubungi kami!">
+                    Have questions or ready to book? Get in touch with us!
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2" data-en="Your Name" data-id="Nama Anda">Your Name</label>
+                            <input type="text" id="contactName" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2" data-en="Email Address" data-id="Alamat Email">Email Address</label>
+                            <input type="email" id="contactEmail" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2" data-en="WhatsApp Number" data-id="Nomor WhatsApp">WhatsApp Number</label>
+                            <input type="tel" id="contactWhatsApp" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="+62 812 3456 7890">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2" data-en="Message" data-id="Pesan">Message</label>
+                            <textarea id="contactMessage" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none" placeholder="Tell us about your travel plans..." data-en-placeholder="Tell us about your travel plans..." data-id-placeholder="Ceritakan rencana perjalanan Anda..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transition-colors shadow-lg" data-en="Chat via WhatsApp" data-id="Chat via WhatsApp">
+                            <i class="fab fa-whatsapp mr-2 text-xl"></i>Chat via WhatsApp
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex items-center space-x-4">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fab fa-whatsapp text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800" data-en="WhatsApp" data-id="WhatsApp">WhatsApp</h4>
+                            <p class="text-gray-600">+62 812 3456 7890</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex items-center space-x-4">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-envelope text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800" data-en="Email" data-id="Email">Email</h4>
+                            <p class="text-gray-600">info@haditransbali.com</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex items-center space-x-4">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800" data-en="Location" data-id="Lokasi">Location</h4>
+                            <p class="text-gray-600">Bali, Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex items-center space-x-4">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-clock text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800" data-en="Working Hours" data-id="Jam Kerja">Working Hours</h4>
+                            <p class="text-gray-600" data-en="24/7 Available" data-id="Tersedia 24/7">24/7 Available</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BOOKING MODAL ========== -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="modalOverlay"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl p-6 md:p-8">
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h3 class="text-2xl font-bold text-primary mb-6" data-en="Book Your Tour" data-id="Pesan Tur Anda">Book Your Tour</h3>
+            
+            <form id="bookingForm" class="space-y-5">
+                <!-- Selected Package Display -->
+                <div class="bg-gray-50 rounded-xl p-4">
+                    <p class="text-sm text-gray-500 mb-1" data-en="Selected Package" data-id="Paket Terpilih">Selected Package</p>
+                    <h4 id="selectedPackageName" class="font-semibold text-primary text-lg">-</h4>
+                    <p id="selectedPackagePrice" class="text-gray-600">IDR 0</p>
+                </div>
+                
+                <!-- Vehicle Selection -->
+                <div>
+                    <label class="block text-gray-700 font-medium mb-2" data-en="Select Vehicle" data-id="Pilih Kendaraan">Select Vehicle</label>
+                    <select id="vehicleSelect" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                        <option value="Avanza">Toyota Avanza (4-6 pax) - No extra charge</option>
+                        <option value="Innova">Toyota Innova (6-7 pax) - +IDR 150,000</option>
+                        <option value="Brio">Honda Brio (2-4 pax) - -IDR 50,000</option>
+                    </select>
+                </div>
+                
+                <!-- Number of Guests -->
+                <div>
+                    <label class="block text-gray-700 font-medium mb-2" data-en="Number of Guests" data-id="Jumlah Tamu">Number of Guests</label>
+                    <input type="number" id="guestCount" min="1" max="10" value="2" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                    <p class="text-sm text-gray-500 mt-1" data-en="Extra charge of IDR 50,000/guest for more than 4 guests" data-id="Biaya tambahan IDR 50.000/tamu untuk lebih dari 4 tamu">
+                        Extra charge of IDR 50,000/guest for more than 4 guests
+                    </p>
+                </div>
+                
+                <!-- Date Selection -->
+                <div>
+                    <label class="block text-gray-700 font-medium mb-2" data-en="Tour Date" data-id="Tanggal Tur">Tour Date</label>
+                    <input type="date" id="tourDate" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                </div>
+                
+                <!-- Add-ons -->
+                <div>
+                    <label class="block text-gray-700 font-medium mb-3" data-en="Add-ons (Optional)" data-id="Tambahan (Opsional)">Add-ons (Optional)</label>
+                    <div class="space-y-3">
+                        <label class="flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" id="addonGuide" class="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary">
+                            <span data-en="English Speaking Guide (+IDR 250,000)" data-id="Pemandu Berbahasa Inggris (+IDR 250.000)">English Speaking Guide (+IDR 250,000)</span>
+                        </label>
+                        <label class="flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" id="addonWifi" class="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary">
+                            <span data-en="Portable WiFi (+IDR 50,000)" data-id="WiFi Portabel (+IDR 50.000)">Portable WiFi (+IDR 50,000)</span>
+                        </label>
+                        <label class="flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" id="addonCarseat" class="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary">
+                            <span data-en="Child Car Seat (+IDR 50,000)" data-id="Kursi Mobil Anak (+IDR 50.000)">Child Car Seat (+IDR 50,000)</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Customer Info -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2" data-en="Your Name" data-id="Nama Anda">Your Name</label>
+                        <input type="text" id="customerName" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2" data-en="WhatsApp Number" data-id="Nomor WhatsApp">WhatsApp Number</label>
+                        <input type="tel" id="customerPhone" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="+62 812 3456 7890">
+                    </div>
+                </div>
+                
+                <!-- Total Price -->
+                <div class="bg-accent/20 rounded-xl p-4 border-2 border-accent">
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold text-gray-700" data-en="Total Price" data-id="Total Harga">Total Price</span>
+                        <span id="totalPrice" class="text-2xl font-bold text-primary">IDR 0</span>
+                    </div>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" class="w-full py-4 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transition-colors shadow-lg" data-en="Proceed to WhatsApp" data-id="Lanjut ke WhatsApp">
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i>Proceed to WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-primary py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Logo & Description -->
+                <div>
+                    <a href="#home" class="text-2xl font-bold text-white mb-4 inline-block">
+                        <span class="text-accent">Hadi</span> Trans Bali
+                    </a>
+                    <p class="text-white/70 mt-4" data-en="Your trusted partner for exploring the beautiful island of Bali with comfort and style." data-id="Mitra terpercaya Anda untuk menjelajahi pulau Bali yang indah dengan nyaman dan bergaya.">
+                        Your trusted partner for exploring the beautiful island of Bali with comfort and style.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4" data-en="Quick Links" data-id="Tautan Cepat">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#packages" class="text-white/70 hover:text-accent transition-colors" data-en="Packages" data-id="Paket">Packages</a></li>
+                        <li><a href="#fleet" class="text-white/70 hover:text-accent transition-colors" data-en="Fleet" data-id="Armada">Fleet</a></li>
+                        <li><a href="#about" class="text-white/70 hover:text-accent transition-colors" data-en="About Us" data-id="Tentang Kami">About Us</a></li>
+                        <li><a href="#contact" class="text-white/70 hover:text-accent transition-colors" data-en="Contact" data-id="Kontak">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social Media -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4" data-en="Follow Us" data-id="Ikuti Kami">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-primary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-primary transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-primary transition-colors">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-white/20 pt-8 text-center">
+                <p class="text-white/70">&copy; 2025 Hadi Trans Bali. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
