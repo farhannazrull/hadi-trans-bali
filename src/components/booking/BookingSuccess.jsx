@@ -3,8 +3,6 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from '@/lib/router';
-import jsPDF from 'jspdf';
-import { toJpeg } from 'html-to-image';
 import { useBooking } from '../../context/BookingContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { useCurrency } from '../../context/CurrencyContext';
@@ -23,8 +21,12 @@ const BookingSuccess = () => {
     setIsDownloading(true);
 
     try {
+      const [{ toJpeg }, { default: jsPDF }] = await Promise.all([
+        import('html-to-image'),
+        import('jspdf'),
+      ]);
       const element = ticketRef.current;
-      const dataUrl = await toJpeg(element, { 
+      const dataUrl = await toJpeg(element, {
         quality: 0.95,
         backgroundColor: '#ffffff',
         pixelRatio: 2

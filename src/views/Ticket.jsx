@@ -5,8 +5,6 @@ import { useLastSegment, Link } from '@/lib/router';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { doc, getDoc } from 'firebase/firestore';
-import jsPDF from 'jspdf';
-import { toJpeg } from 'html-to-image';
 import { db } from '../config/firebase';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
@@ -63,10 +61,14 @@ const Ticket = () => {
     setIsDownloading(true);
 
     try {
+      const [{ toJpeg }, { default: jsPDF }] = await Promise.all([
+        import('html-to-image'),
+        import('jspdf'),
+      ]);
       const element = ticketRef.current;
-      
+
       // Use toJpeg from html-to-image which handles modern CSS (oklab/oklch) much better
-      const dataUrl = await toJpeg(element, { 
+      const dataUrl = await toJpeg(element, {
         quality: 0.95,
         backgroundColor: '#ffffff', // Keep white background for PDF readability
         pixelRatio: 2 // High quality
