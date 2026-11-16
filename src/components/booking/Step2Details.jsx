@@ -152,11 +152,12 @@ const Step2Details = () => {
 
       {/* Pickup Location */}
       <div className="space-y-3">
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">
+        <label htmlFor="pickup-location" className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">
           {isAirportTransfer ? t('booking.pickupLocation') : t('booking.wherePickup')}
         </label>
         <div className="relative group">
           <input
+            id="pickup-location"
             type="text"
             name="pickupLocation"
             value={bookingData.pickupLocation}
@@ -272,8 +273,9 @@ const Step2Details = () => {
       {/* Dropoff Location (for airport transfer) */}
       {isAirportTransfer && (
         <div className="space-y-3">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">{t('booking.dropoffLocation')}</label>
+          <label htmlFor="dropoff-location" className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">{t('booking.dropoffLocation')}</label>
           <input
+            id="dropoff-location"
             type="text"
             name="dropoffLocation"
             value={bookingData.dropoffLocation}
@@ -293,12 +295,13 @@ const Step2Details = () => {
       {/* Date & Time */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="space-y-3">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">{t('booking.pickupDate')}</label>
-          <div 
+          <label htmlFor="pickup-date" className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">{t('booking.pickupDate')}</label>
+          <div
             className="group w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-green-700 bg-white dark:bg-dark-green-900 focus-within:border-[#1a4d3e] dark:focus-within:border-[#4ade80] transition-colors cursor-pointer flex items-center justify-between overflow-hidden"
             onClick={() => triggerPicker(pickupDateRef)}
           >
             <input
+              id="pickup-date"
               ref={pickupDateRef}
               type="date"
               name="pickupDate"
@@ -314,12 +317,13 @@ const Step2Details = () => {
           </div>
         </div>
         <div className="space-y-3">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">{t('booking.pickupTime')}</label>
-          <div 
+          <label htmlFor="pickup-time" className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">{t('booking.pickupTime')}</label>
+          <div
             className="group w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-green-700 bg-white dark:bg-dark-green-900 focus-within:border-[#1a4d3e] dark:focus-within:border-[#4ade80] transition-colors cursor-pointer flex items-center justify-between overflow-hidden"
             onClick={() => triggerPicker(pickupTimeRef)}
           >
             <input
+              id="pickup-time"
               ref={pickupTimeRef}
               type="time"
               name="pickupTime"
@@ -339,12 +343,13 @@ const Step2Details = () => {
       {isAirportTransfer && bookingData.tripType === 'round-trip' && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="space-y-3">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">{t('booking.returnDate')}</label>
-            <div 
+            <label htmlFor="return-date" className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">{t('booking.returnDate')}</label>
+            <div
               className="group w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-green-700 bg-white dark:bg-dark-green-900 focus-within:border-[#1a4d3e] dark:focus-within:border-[#4ade80] transition-colors cursor-pointer flex items-center justify-between overflow-hidden"
               onClick={() => triggerPicker(returnDateRef)}
             >
               <input
+                id="return-date"
                 ref={returnDateRef}
                 type="date"
                 name="returnDate"
@@ -360,12 +365,13 @@ const Step2Details = () => {
             </div>
           </div>
           <div className="space-y-3">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">{t('booking.returnTime')}</label>
-            <div 
+            <label htmlFor="return-time" className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">{t('booking.returnTime')}</label>
+            <div
               className="group w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-green-700 bg-white dark:bg-dark-green-900 focus-within:border-[#1a4d3e] dark:focus-within:border-[#4ade80] transition-colors cursor-pointer flex items-center justify-between overflow-hidden"
               onClick={() => triggerPicker(returnTimeRef)}
             >
               <input
+                id="return-time"
                 ref={returnTimeRef}
                 type="time"
                 name="returnTime"
@@ -385,10 +391,11 @@ const Step2Details = () => {
       {/* Flight Number (for airport transfer) */}
       {isAirportTransfer && (
         <div className="space-y-3">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">
+          <label htmlFor="flight-number" className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">
             {t('booking.flightNumber')} <span className="text-gray-400 dark:text-gray-500">({t('common.optional')})</span>
           </label>
           <input
+            id="flight-number"
             type="text"
             name="flightNumber"
             value={bookingData.flightNumber}

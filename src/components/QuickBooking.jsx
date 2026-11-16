@@ -98,11 +98,12 @@ const QuickBooking = () => {
         {/* Inputs */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 md:gap-3 px-2 md:px-3 pb-1.5 md:pb-4">
           <div className="space-y-1">
-            <label className="text-[10px] font-medium text-gray-500 dark:text-gray-400 ml-1">
+            <label htmlFor="quick-booking-location" className="text-[10px] font-medium text-gray-500 dark:text-gray-400 ml-1">
               {language === 'id' ? 'Lokasi Jemput' : 'Pick-up Location'}
             </label>
             <div className="relative">
               <input
+                id="quick-booking-location"
                 type="text"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
@@ -130,11 +131,12 @@ const QuickBooking = () => {
           </div>
 
           <div className="space-y-1">
-            <label className="text-[10px] font-medium text-gray-500 dark:text-gray-400 ml-1">
+            <label htmlFor="quick-booking-date" className="text-[10px] font-medium text-gray-500 dark:text-gray-400 ml-1">
               {language === 'id' ? 'Tanggal' : 'Date'}
             </label>
             <div className="relative">
               <input
+                id="quick-booking-date"
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}

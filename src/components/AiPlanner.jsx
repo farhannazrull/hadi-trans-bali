@@ -155,6 +155,7 @@ const AiPlanner = () => {
                   type="text" value={input} onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                   placeholder="Tanya liburan di Bali..."
+                  aria-label="Tanya liburan di Bali"
                   className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 dark:border-dark-green-700 bg-gray-50 dark:bg-dark-green-950 text-gray-900 dark:text-white outline-none text-xs focus:border-[#1a4d3e] transition-[color,background-color,border-color,opacity,transform,box-shadow]"
                 />
                 <button onClick={handleSend} disabled={!input.trim() || isLoading} className="btn-3d btn-3d-bronze text-white p-2.5 rounded-xl">

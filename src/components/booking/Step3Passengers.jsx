@@ -323,10 +323,11 @@ const Step3Passengers = () => {
 
       {/* Special Requests */}
       <div className="space-y-3">
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">
+        <label htmlFor="special-requests" className="block text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors">
           {t('booking.specialRequests')} <span className="text-gray-400 dark:text-gray-500">({t('common.optional')})</span>
         </label>
         <textarea
+          id="special-requests"
           name="specialRequests"
           value={bookingData.specialRequests}
           onChange={(e) => updateBooking({ specialRequests: e.target.value })}
