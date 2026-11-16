@@ -1,0 +1,48 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "functions": {
+    "source": "functions"
+  },
+  "hosting": {
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/tour/**",
+        "destination": "/tour/_/index.html"
+      },
+      {
+        "source": "/blog/**",
+        "destination": "/blog/_/index.html"
+      },
+      {
+        "source": "/ticket/**",
+        "destination": "/ticket/_/index.html"
+      }
+    ],
+    "cleanUrls": false,
+    "trailingSlash": true,
+    "redirects": [
+      {
+        "source": "/packages",
+        "destination": "/services/",
+        "type": 301
+      },
+      {
+        "source": "/packages/",
+        "destination": "/services/",
+        "type": 301
+      }
+    ]
+  }
+}

@@ -1,0 +1,304 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary-50: #faf5f0;
+  --color-primary-100: #f3e8db;
+  --color-primary-200: #e6d0b8;
+  --color-primary-300: #d4b08a;
+  --color-primary-400: #c4935f;
+  --color-primary-500: #b8824d;
+  --color-primary-600: #a06a3c;
+  --color-primary-700: #855434;
+  --color-primary-800: #6d4530;
+  --color-primary-900: #5a3a29;
+  
+  --color-accent-500: #1a4d3e;
+  --color-accent-600: #143d31;
+  --color-accent-700: #0f2d24;
+
+  --color-dark-green-950: #06120e;
+  --color-dark-green-900: #0a1f1a;
+  --color-dark-green-800: #0f2d24;
+  --color-dark-green-700: #1a4d3e;
+  
+  --color-warm-50: #fdfcfb;
+  --color-warm-100: #f9f6f3;
+  --color-warm-200: #f3ede6;
+  
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #fdfcfb;
+  color: #1a1a1a;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body {
+  background-color: var(--color-dark-green-950);
+  color: #f8fafc;
+}
+
+/* Hide default browser date/time icons */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+  opacity: 0; /* Ensures it's hidden but still clickable if needed */
+}
+
+input[type="date"], 
+input[type="time"] {
+  position: relative;
+}
+
+/* Modern Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4b08a; /* primary-300 */
+  border-radius: 20px;
+  border: 1px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c4935f; /* primary-400 */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d4b08a transparent;
+}
+
+/* Utility for specific scrollable containers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(26, 77, 62, 0.2); /* accent-500 with opacity */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 77, 62, 0.4);
+}
+
+/* Image reveal */
+.image-reveal {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Split text hover effect */
+.split-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.split-hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #c4935f;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.split-hover:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Number styling */
+.number-outline {
+  -webkit-text-stroke: 1px #c4935f;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Blog Content Styling */
+.blog-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.blog-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+html.dark .blog-content h3 {
+  color: #f8fafc;
+}
+
+.blog-content strong {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+html.dark .blog-content strong {
+  color: #f1f5f9;
+}
+
+.blog-content ul, .blog-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.blog-content li {
+  margin-bottom: 0.5rem;
+  list-style-type: disc;
+}
+
+html.dark .blog-content li::marker {
+  color: #c4935f;
+}
+
+/* Cursor styles */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #c4935f;
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #c4935f;
+}
+
+/* 3D gradient buttons: a tonal (single-hue) gradient plus a bevel highlight and a
+   bottom "lip" shadow, so the button reads as raised and presses down on click. */
+.btn-3d {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.12),
+    0 1px 0 var(--btn-3d-edge, rgba(0, 0, 0, 0.3)),
+    0 5px 12px -3px rgba(0, 0, 0, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.btn-3d:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.12),
+    0 2px 0 var(--btn-3d-edge, rgba(0, 0, 0, 0.3)),
+    0 9px 18px -4px rgba(0, 0, 0, 0.4);
+}
+
+.btn-3d:active {
+  /* Snap into the pressed look immediately (no transition-in delay) so the
+     press still reads even when a Link navigates away right after the click;
+     releasing still eases back via the durations above. */
+  transition-duration: 0.02s;
+  transform: translateY(2px) scale(0.98);
+  filter: brightness(0.94);
+  box-shadow:
+    inset 0 2px 5px rgba(0, 0, 0, 0.3),
+    0 0 0 var(--btn-3d-edge, rgba(0, 0, 0, 0.3));
+}
+
+.btn-3d:disabled {
+  filter: grayscale(0.5) brightness(0.85);
+  opacity: 0.7;
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.btn-3d-bronze {
+  background-image: linear-gradient(180deg, #e3b488 0%, #c4935f 45%, #a8713f 100%);
+  --btn-3d-edge: #7c4e28;
+}
+
+.btn-3d-green {
+  background-image: linear-gradient(180deg, #2f7a60 0%, #1a4d3e 55%, #0d2b21 100%);
+  --btn-3d-edge: #061a14;
+}
+
+/* Adaptive primary: dark-green in light mode, bright green (brand's dark-mode accent) in dark mode.
+   Pair with the component's own text-white dark:text-gray-900 class for readable contrast. */
+.btn-3d-green-adaptive {
+  background-image: linear-gradient(180deg, #2f7a60 0%, #1a4d3e 55%, #0d2b21 100%);
+  --btn-3d-edge: #061a14;
+}
+
+html.dark .btn-3d-green-adaptive {
+  background-image: linear-gradient(180deg, #8bf0b4 0%, #4ade80 55%, #22c55e 100%);
+  --btn-3d-edge: #15803d;
+}
+
+/* Adaptive secondary: bronze in light mode, bright green (brand's dark-mode accent) in dark mode. */
+.btn-3d-bronze-adaptive {
+  background-image: linear-gradient(180deg, #e3b488 0%, #c4935f 45%, #a8713f 100%);
+  --btn-3d-edge: #7c4e28;
+}
+
+html.dark .btn-3d-bronze-adaptive {
+  background-image: linear-gradient(180deg, #8bf0b4 0%, #4ade80 55%, #22c55e 100%);
+  --btn-3d-edge: #15803d;
+}
+
+.btn-3d-whatsapp {
+  background-image: linear-gradient(180deg, #3fe583 0%, #25d366 55%, #189650 100%);
+  --btn-3d-edge: #0e6b39;
+}
+
+/* Same raised, bevelled language as .btn-3d, for static cards/badges that float over other
+   content (e.g. the stats badge overlapping the About page photo grid) rather than buttons. */
+.card-3d {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.18),
+    0 1px 0 var(--card-3d-edge, rgba(0, 0, 0, 0.25)),
+    0 16px 32px -10px rgba(0, 0, 0, 0.4);
+}
+
+.card-3d-green {
+  background-image: linear-gradient(180deg, #2f7a60 0%, #1a4d3e 55%, #0d2b21 100%);
+  --card-3d-edge: #061a14;
+}
+
+html.dark .card-3d-green {
+  background-image: linear-gradient(180deg, #8bf0b4 0%, #4ade80 55%, #22c55e 100%);
+  --card-3d-edge: #15803d;
+}

@@ -1,0 +1,61 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // 1. Koleksi Profil User
+    match /users/{userId} {
+      allow read, write: if isSignedIn() && request.auth.uid == userId;
+    }
+    
+    // 2. Koleksi Admins
+    match /admins/{adminId} {
+      allow read: if isSignedIn(); 
+      allow write: if false; 
+    }
+    
+    // 3. Koleksi Bookings
+    match /bookings/{bookingId} {
+      allow create: if 
+        // Validasi data dasar untuk mencegah data sampah
+        request.resource.data.fullName is string &&
+        request.resource.data.fullName.size() > 2;
+
+      allow read: if true; // Memudahkan akses sementara untuk testing
+      
+      allow update, delete: if isAdmin();
+    }
+
+    // 4. Konten Publik
+    match /packages/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    match /posts/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    match /fleet/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    match /reviews/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

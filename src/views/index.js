@@ -1,0 +1,10 @@
+export { default as Home } from './Home';
+export { default as Services } from './Services';
+export { default as About } from './About';
+export { default as Contact } from './Contact';
+export { default as Booking } from './Booking';
+export { default as Ticket } from './Ticket';
+export { default as TourDetail } from './TourDetail';
+export { default as Blog } from './Blog';
+export { default as BlogPost } from './BlogPost';
+export { default as AdminDashboard } from './admin/Dashboard';

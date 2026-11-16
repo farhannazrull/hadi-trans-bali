@@ -1,0 +1,45 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Fungsi pembantu untuk cek Admin
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == 'haditransbali@gmail.com';
+    }
+
+    // 1. Folder Konten (Packages, Blog, Fleet)
+    // Siapa saja bisa lihat gambar, tapi hanya Admin yang bisa upload/hapus
+    match /packages/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    match /blog/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    match /fleet/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /uploads/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // 2. Folder Profil User
+    // User bisa upload foto profil mereka sendiri
+    match /users/{userId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId || isAdmin();
+    }
+
+    // Default: Tolak akses lainnya
+    match /{allPaths=**} {
+      allow read: if request.auth != null || isAdmin();
+      allow write: if isAdmin();
+    }
+  }
+}
